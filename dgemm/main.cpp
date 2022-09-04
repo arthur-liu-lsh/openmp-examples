@@ -96,6 +96,9 @@ int main(int argc, char *argv[])
     double alpha = 2.f;
     double beta = 2.f;
 
+    cout << BLOCKSIZE*NBLOCKS << " * " << BLOCKSIZE*NBLOCKS << " DGEMM" << endl;
+    cout << "Block size for tiled DGEMM: " << BLOCKSIZE << endl;
+
     auto start = chrono::steady_clock::now();
     dgemm(alpha, A, B, beta, C, BLOCKSIZE * NBLOCKS, BLOCKSIZE * NBLOCKS);
     auto end = chrono::steady_clock::now();
